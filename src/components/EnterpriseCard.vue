@@ -2,6 +2,15 @@
   <div class="card-wrapper">
     <h1>{{enterprise.id}}</h1>
     <img :src="enterprise.image" />
+    <v-btn
+      class="ma-2"
+      :loading="loading"
+      :disabled="loading"
+      color="secondary"
+      @click="loader = 'loading'"
+    >
+      Accept Terms
+    </v-btn>
   </div>
 </template>
 
