@@ -5,10 +5,10 @@
     min-width="180" 
     max-width="600" 
   >
-    <h2 class="mb-2">{{enterprise.name}}</h2>
-    <p>{{enterprise.createdAt.date}} às {{enterprise.createdAt.time}}</p>
+    <h2 class="mb-2 mx-5">{{enterprise.name}}</h2>
+    <p class="mx-5">{{enterprise.createdAt.date}} às {{enterprise.createdAt.time}}</p>
     
-    <v-list two-line>
+    <v-list two-line class="mx-auto">
       <v-list-item>
         <v-list-item-icon>
           <v-icon color="indigo">
