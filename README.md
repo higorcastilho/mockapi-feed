@@ -1,24 +1,17 @@
-# mockio-feed
+<h1 align="center">
+  mockapi-feed
+</h1>
 
-## Project setup
+## Como executar:
+
+Faça um clone do repositório, navegue para dentro da pasta do projeto e dê o comando:
 ```
 npm install
 ```
 
-### Compiles and hot-reloads for development
+Após o término da instalação das dependências, dê o comando:
+
 ```
 npm run serve
 ```
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
