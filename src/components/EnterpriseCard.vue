@@ -1,17 +1,48 @@
 <template>
-  <div class="card-wrapper">
-    <h1>{{enterprise.id}}</h1>
-    <img :src="enterprise.image" />
-    <v-btn
-      class="ma-2"
-      :loading="loading"
-      :disabled="loading"
-      color="secondary"
-      @click="loader = 'loading'"
-    >
-      Accept Terms
-    </v-btn>
-  </div>
+  <v-card 
+    class="mx-auto my-4 px-3 py-2" 
+    outlined 
+    min-width="180" 
+    max-width="600" 
+  >
+    <h2 class="mb-2">{{enterprise.name}}</h2>
+    <p>{{enterprise.createdAt.date}} às {{enterprise.createdAt.time}}</p>
+    
+    <v-list two-line>
+      <v-list-item>
+        <v-list-item-icon>
+          <v-icon color="indigo">
+            mdi-phone
+          </v-icon>
+        </v-list-item-icon>
+        <v-list-item-content>
+          <v-list-item-title>{{enterprise.phone}}</v-list-item-title>
+          <v-list-item-subtitle>Mobile</v-list-item-subtitle>
+        </v-list-item-content>
+      </v-list-item>
+
+      <v-list-item>
+        <v-list-item-icon>
+          <v-icon color="indigo">
+            mdi-map-marker
+          </v-icon>
+        </v-list-item-icon>
+        <v-list-item-content>
+          <v-list-item-title>{{enterprise.address}}, nº{{enterprise.number}}</v-list-item-title>
+          <v-list-item-subtitle>{{enterprise['zip-code']}}</v-list-item-subtitle>
+        </v-list-item-content>
+      </v-list-item>
+    </v-list>
+
+    <v-card-text>
+      <v-chip-group
+        row
+      >
+        <v-chip>Lat: {{enterprise.lat}}</v-chip>
+        <v-chip>Long: {{enterprise.long}}</v-chip>
+      </v-chip-group>
+    </v-card-text>
+  </v-card>
 </template>
 
 <script>
@@ -25,18 +56,3 @@ export default {
   }
 }
 </script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-	h1 {
-		color: green;
-	}
-	h2 {
-		color: black;
-	}
-
-	.card-wrapper {
-		background: pink;
-	}
-
-</style>

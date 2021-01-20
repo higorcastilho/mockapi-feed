@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import App from './App.vue'
 
-import './assets/styles/globalStyle.css'
+//import './assets/styles/globalStyle.css'
 import vuetify from './plugins/vuetify';
 
 Vue.config.productionTip = false
