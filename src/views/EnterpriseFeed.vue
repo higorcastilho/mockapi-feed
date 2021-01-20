@@ -5,6 +5,15 @@
 			:key="item.id"
 			:enterprise="item"
     />
+		<v-btn
+			class="ma-2 mx-auto d-flex my-5"
+			:loading="loading"
+			:disabled="loading"
+			color="primary"
+			@click="loader"
+		>
+			Carregar mais
+		</v-btn>
   </v-container>
 </template>
 
@@ -21,7 +30,9 @@ export default {
   },
 	data () {
 		return {
-			enterpriseItems: []
+			enterpriseItems: [],
+			limit: 3,
+			loading: false
 		}
   },
   methods: {
@@ -40,12 +51,25 @@ export default {
 			})
 
 			return newEnterpriseList
+		},
+
+		loader () {
+			this.loading = true
+			setTimeout(async () => {
+
+				this.limit += 3 
+				const enterprisesList = await this.handleGetAPIData()
+				const newEnterpriseList = this.handleFormatDate(enterprisesList)		
+				this.enterpriseItems = [ ...newEnterpriseList ].slice(0, this.limit)
+				this.loading = false
+
+			}, 1000)
 		}
   },	
   async mounted () {
 		const enterprisesList = await this.handleGetAPIData()
 		const newEnterpriseList = this.handleFormatDate(enterprisesList)
-		this.enterpriseItems = [ ...newEnterpriseList ]
+		this.enterpriseItems = [ ...newEnterpriseList ].slice(0, this.limit)
   }
 }
 </script>
